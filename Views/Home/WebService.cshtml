@@ -1,0 +1,29 @@
+﻿@model List<ZepterShop.Models.Dto.OrdersSummarySqlDto>
+@{
+    ViewData["Title"] = "Web Service";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-3">Dane pobrane z webserwisu</h2>
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>ID Zamówienia</th>
+                <th>Sklep</th>
+                <th>Miasto</th>
+                <th>Suma Netto</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var entry in Model)
+            {
+                <tr>
+                    <td>@entry.OrderId</td>
+                    <td>@entry.ShopName</td>
+                    <td>@entry.City</td>
+                    <td>@entry.NetTotal zł</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

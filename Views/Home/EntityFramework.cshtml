@@ -1,0 +1,27 @@
+﻿@model List<ZepterShop.Models.Dto.OrdersSummaryEfDto>
+@{
+    ViewData["Title"] = "Entity Framework";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-3">Dane pobrane przy pomocy Entity Framework</h2>
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>Metoda Płatności</th>
+                <th>Liczba Zamówień</th>
+                <th>Łączna Wartość Brutto</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var entry in Model)
+            {
+                <tr>
+                    <td>@entry.PaymentMethod</td>
+                    <td>@entry.OrderCount</td>
+                    <td>@($"{entry.TotalGross:N2} zł")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
